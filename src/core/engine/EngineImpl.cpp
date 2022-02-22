@@ -65,7 +65,7 @@ PlatformFileSystem &EngineImpl::fileSystem() {
     return defaultFileSystem;
 }
 
-OpenGLGraphics &EngineImpl::graphics() {
+Graphics &EngineImpl::graphics() {
     return openGlGraphics;
 }
 

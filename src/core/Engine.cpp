@@ -18,7 +18,7 @@ PlatformFileSystem &Engine::fileSystem() {
     return instance().fileSystem();
 }
 
-PlatformGraphics &Engine::graphics() {
+Graphics &Engine::graphics() {
     return instance().graphics();
 }
 

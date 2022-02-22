@@ -11,21 +11,21 @@
 #include "../PlatformGraphics.h"
 #include "../MeshDataStatic.h"
 #include "ShaderProgramGl.h"
-#include "MyVertex.h"
+#include "graphics/MyVertex.h"
 #include "MeshGl.h"
 #include "FatMeshGl.h"
 #include "TextureGl.h"
 #include "../Model.h"
 
 class GLFWwindow;
-class OpenGLGraphics : public PlatformGraphics {
+class OpenGLGraphics : public PlatformGraphics<OpenGLGraphics> {
 public:
 
-    bool startup(int width, int height) override;
-    void shutdown() override;
-    void update() override;
+    bool startupImpl(int width, int height);
+    void shutdownImpl();
+    void updateImpl();
 
-    bool isRunning() const override;
+    bool isRunningImpl() const;
 
 private:
 

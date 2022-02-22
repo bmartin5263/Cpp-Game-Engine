@@ -40,7 +40,7 @@ void framebuffer_size_callback(GLFWwindow* window, int width, int height){
     glViewport(0, 0, width, height);
 }
 
-bool OpenGLGraphics::startup(int width, int height) {
+bool OpenGLGraphics::startupImpl(int width, int height) {
     glfwInit();
     glfwWindowHint(GLFW_CONTEXT_VERSION_MAJOR, 3);
     glfwWindowHint(GLFW_CONTEXT_VERSION_MINOR, 3);
@@ -90,11 +90,11 @@ bool OpenGLGraphics::startup(int width, int height) {
     return true;
 }
 
-void OpenGLGraphics::shutdown() {
+void OpenGLGraphics::shutdownImpl() {
     glfwTerminate();
 }
 
-void OpenGLGraphics::update() {
+void OpenGLGraphics::updateImpl() {
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
     glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
 
@@ -127,7 +127,7 @@ void OpenGLGraphics::update() {
     glfwPollEvents();
 }
 
-bool OpenGLGraphics::isRunning() const {
+bool OpenGLGraphics::isRunningImpl() const {
     return !glfwWindowShouldClose(window);
 }
 

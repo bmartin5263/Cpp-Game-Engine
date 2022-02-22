@@ -10,6 +10,7 @@
 #include "scene/EngineScene.h"
 #include "graphics/opengl/OpenGLGraphics.h"
 #include "file/default/DefaultFileSystem.h"
+#include "../../platforms.h"
 
 typedef std::deque<EngineScene> SceneStack;
 typedef std::queue<EngineScene> SceneQueue;
@@ -24,14 +25,14 @@ public:
     void doSceneChanges();
     bool isRunning() const;
     PlatformFileSystem& fileSystem();
-    OpenGLGraphics& graphics();
+    Graphics& graphics();
 
 private:
 
     void startSubsystems();
     void shutdownSubsystems();
 
-    OpenGLGraphics openGlGraphics;
+    Graphics openGlGraphics;
     DefaultFileSystem defaultFileSystem;
 
     SceneStack sceneStack;

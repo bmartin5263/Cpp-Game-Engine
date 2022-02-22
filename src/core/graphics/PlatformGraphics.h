@@ -5,14 +5,21 @@
 #ifndef CPP_GAME_ENGINE_PLATFORMGRAPHICS_H
 #define CPP_GAME_ENGINE_PLATFORMGRAPHICS_H
 
-
+template <class T>
 class PlatformGraphics {
 public:
-    virtual bool startup(int width, int height) = 0;
-    virtual void shutdown() = 0;
-    virtual void update() = 0;
-    virtual bool isRunning() const = 0;
-    virtual ~PlatformGraphics() = default;
+    bool startup(int width, int height) {
+        return static_cast<T*>(this)->startupImpl(width, height);
+    };
+    void shutdown() {
+        static_cast<T*>(this)->shutdownImpl();
+    };
+    void update() {
+        static_cast<T*>(this)->updateImpl();
+    };
+    bool isRunning() const {
+        return static_cast<const T*>(this)->isRunningImpl();
+    };
 };
 
 

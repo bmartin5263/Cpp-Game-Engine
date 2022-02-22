@@ -6,17 +6,17 @@
 #define CPP_GAME_ENGINE_ENGINE_H
 
 #include "file/PlatformFileSystem.h"
+#include <../platforms.h>
 
 class Scene;
 class EngineImpl;
-class PlatformGraphics;
 class Engine {
 public:
     static void create();
     static void launch(Scene *scene);
     static void pushScene(Scene *scene);
     static PlatformFileSystem& fileSystem();
-    static PlatformGraphics& graphics();
+    static Graphics& graphics();
 
 private:
     static EngineImpl& instance();
