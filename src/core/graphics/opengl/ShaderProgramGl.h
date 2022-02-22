@@ -14,9 +14,10 @@ public:
     void init(const char *vShader, const char *fShader) override;
     void release();
     void use() const override;
-    void setBool(const std::string &name, bool value) const override;
-    void setInt(const std::string &name, int value) const override;
-    void setFloat(const std::string &name, float value) const override;
+    void setBool(const std::string &name, bool value) override;
+    void setInt(const std::string &name, int value) override;
+    void setFloat(const std::string &name, float value) override;
+    void setMatrix4(const std::string &name, const glm::mat4& value) override;
 
     ~ShaderProgramGl() override;
 

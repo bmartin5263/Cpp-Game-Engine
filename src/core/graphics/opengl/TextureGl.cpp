@@ -4,9 +4,8 @@
 
 #include "TextureGl.h"
 #include "mygl.h"
-#define STB_IMAGE_IMPLEMENTATION
-//#include "stb_image.h"
-#include "../../FileSystem.h"
+#include "../../file/FileSystemUtil.h"
+#include "FileSystem.h"
 #include <strtools.h>
 
 void TextureGl::init(const char *filename) {

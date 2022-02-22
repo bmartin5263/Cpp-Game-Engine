@@ -3,6 +3,7 @@
 #include "sample/SampleScene.h"
 
 int main(int argc, char* args[]) {
+    Engine::create();
     Engine::launch(new SampleScene);
     return 0;
 }

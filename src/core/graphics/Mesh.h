@@ -17,15 +17,15 @@ public:
     virtual ~Mesh() = default;
 
     void setMeshData(MeshData<Vertex> *data) {
-        this->data.reset(data);
+        this->data = data;
     }
 
     MeshData<Vertex>& getMeshData() {
-        return *data.get();
+        return *data;
     }
 
 private:
-    std::unique_ptr<MeshData<Vertex>> data{};
+    MeshData<Vertex>* data;
 
 };
 

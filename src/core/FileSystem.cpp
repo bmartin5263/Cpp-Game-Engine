@@ -3,27 +3,19 @@
 //
 
 #include "FileSystem.h"
-#include "file/default/DefaultFileSystem.h"
-
-bool FileSystem::startup(const char* assetDirectory) {
-    return instance().startup(assetDirectory);
-}
-
-void FileSystem::shutdown() {
-    instance().shutdown();
-}
+#include "Engine.h"
 
 PlatformFileSystem &FileSystem::instance() {
-    static DefaultFileSystem pfs;
-    return pfs;
+    return Engine::fileSystem();
 }
 
-std::string FileSystem::loadTextFile(const char *filename) {
+std::string FileSystem::loadTextFile(const std::string& filename) {
     std::string out;
     instance().loadTextFile(filename, out);
     return out;
 }
 
-void FileSystem::loadImage(const char* path, Image &image) {
+void FileSystem::loadImage(const std::string& path, Image &image) {
     instance().loadImage(path, image);
 }
+

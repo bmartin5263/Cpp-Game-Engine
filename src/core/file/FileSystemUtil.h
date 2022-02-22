@@ -6,10 +6,9 @@
 #define CPP_GAME_ENGINE_FILESYSTEMUTIL_H
 
 #include "globals.h"
-#include "stb_image.h"
 
 struct ImageDeleter {
-    void operator()(byte* data) { stbi_image_free(data); }
+    void operator()(byte* data);
 };
 
 struct Image {
@@ -17,6 +16,8 @@ struct Image {
     int width;
     int height;
     int nrChannels;
+
+    void load(const char *path);
 };
 
 #endif //CPP_GAME_ENGINE_FILESYSTEMUTIL_H

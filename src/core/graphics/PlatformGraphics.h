@@ -11,7 +11,7 @@ public:
     virtual bool startup(int width, int height) = 0;
     virtual void shutdown() = 0;
     virtual void update() = 0;
-    virtual bool isRunning() = 0;
+    virtual bool isRunning() const = 0;
     virtual ~PlatformGraphics() = default;
 };
 

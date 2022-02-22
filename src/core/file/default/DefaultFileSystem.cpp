@@ -3,7 +3,7 @@
 //
 
 #include "DefaultFileSystem.h"
-#include <cstdio>
+#include "../FileSystemUtil.h"
 #include <sstream>
 #include <fstream>
 
@@ -16,7 +16,7 @@ void DefaultFileSystem::shutdown() {
 
 }
 
-void DefaultFileSystem::loadTextFile(const char *path, std::string &out) {
+void DefaultFileSystem::loadTextFile(const std::string& path, std::string &out) {
     auto finalPath = assetDirectory + path;
     std::ifstream file;
     // ensure ifstream objects can throw exceptions:
@@ -38,9 +38,21 @@ void DefaultFileSystem::loadTextFile(const char *path, std::string &out) {
     }
 }
 
-void DefaultFileSystem::loadImage(const char* path, Image &image) {
+void DefaultFileSystem::loadImage(const std::string& path, Image &image) {
     auto finalPath = assetDirectory + path;
     auto s = finalPath.c_str();
-    stbi_set_flip_vertically_on_load(true);
-    image.data.reset(stbi_load(s, &image.width, &image.height, &image.nrChannels, 0));
+    image.load(s);
+
+    if (!image.data) {
+        print("Failed to load " + finalPath);
+        assert(false);
+    }
+}
+
+DefaultFileSystem::~DefaultFileSystem() {
+    print("~FileSystem()");
+}
+
+DefaultFileSystem::DefaultFileSystem() {
+    print("FileSystem()");
 }

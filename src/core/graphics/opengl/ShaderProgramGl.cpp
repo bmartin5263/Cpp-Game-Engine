@@ -7,11 +7,15 @@
 #include "ShaderProgramGl.h"
 #include "mygl.h"
 #include "globals.h"
-#include "../../FileSystem.h"
+#include "glm/gtc/type_ptr.hpp"
+#include "../../Engine.h"
+#include "../../file/PlatformFileSystem.h"
 
 void ShaderProgramGl::init(const char *vPath, const char *fPath) {
-    std::string vertexCode = FileSystem::loadTextFile(vPath);
-    std::string fragmentCode = FileSystem::loadTextFile(fPath);
+    std::string vertexCode;
+    std::string fragmentCode;
+    Engine::fileSystem().loadTextFile(vPath, vertexCode);
+    Engine::fileSystem().loadTextFile(fPath, fragmentCode);
     uint vertexShader = createVertexShader(vertexCode.c_str());
     uint fragmentShader = createFragmentShader(fragmentCode.c_str());
 
@@ -70,14 +74,18 @@ void ShaderProgramGl::release() {
     id = 0;
 }
 
-void ShaderProgramGl::setBool(const std::string &name, bool value) const {
+void ShaderProgramGl::setBool(const std::string &name, bool value) {
     glUniform1i(glGetUniformLocation(id, name.c_str()), (int)value);
 }
 
-void ShaderProgramGl::setInt(const std::string &name, int value) const {
+void ShaderProgramGl::setInt(const std::string &name, int value) {
     glUniform1i(glGetUniformLocation(id, name.c_str()), value);
 }
 
-void ShaderProgramGl::setFloat(const std::string &name, float value) const {
+void ShaderProgramGl::setFloat(const std::string &name, float value) {
     glUniform1f(glGetUniformLocation(id, name.c_str()), value);
+}
+
+void ShaderProgramGl::setMatrix4(const std::string &name, const glm::mat4 &value) {
+    glUniformMatrix4fv(glGetUniformLocation(id, name.c_str()), 1, GL_FALSE, glm::value_ptr(value));
 }

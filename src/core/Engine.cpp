@@ -3,7 +3,7 @@
 //
 
 #include "Engine.h"
-#include "EngineImpl.h"
+#include "engine/EngineImpl.h"
 
 EngineImpl &Engine::instance() {
     static EngineImpl engine;
@@ -13,3 +13,15 @@ EngineImpl &Engine::instance() {
 void Engine::pushScene(Scene *scene) { instance().pushSceneImpl(scene); }
 
 void Engine::launch(Scene *scene) { instance().launchImpl(scene); }
+
+PlatformFileSystem &Engine::fileSystem() {
+    return instance().fileSystem();
+}
+
+PlatformGraphics &Engine::graphics() {
+    return instance().graphics();
+}
+
+void Engine::create() {
+    instance();
+}

@@ -5,17 +5,21 @@
 #ifndef CPP_GAME_ENGINE_DEFAULTFILESYSTEM_H
 #define CPP_GAME_ENGINE_DEFAULTFILESYSTEM_H
 
-
 #include "../PlatformFileSystem.h"
 
 class DefaultFileSystem : public PlatformFileSystem {
 public:
     bool startup(const std::string &assetDirectory) override;
     void shutdown() override;
-    void loadTextFile(const char *path, std::string &out) override;
-    void loadImage(const char* path, Image& image) override;
+    void loadTextFile(const std::string& path, std::string &out) override;
+    void loadImage(const std::string& path, Image& image) override;
 
-    ~DefaultFileSystem() override = default;
+    std::string assetPath() {
+        return assetDirectory;
+    }
+
+    DefaultFileSystem();
+    ~DefaultFileSystem() override;
 
 private:
     std::string assetDirectory;
