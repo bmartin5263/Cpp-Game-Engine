@@ -8,7 +8,7 @@
 #include <deque>
 #include <queue>
 #include "scene/EngineScene.h"
-#include "graphics/opengl/OpenGLGraphics.h"
+#include "graphics/opengl/GraphicsGl.h"
 #include "file/default/DefaultFileSystem.h"
 #include "../../platforms.h"
 

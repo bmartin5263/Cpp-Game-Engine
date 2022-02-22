@@ -1705,7 +1705,7 @@ typedef struct GLFWgammaramp
     unsigned int size;
 } GLFWgammaramp;
 
-/*! @brief Image triangleMeshData.
+/*! @brief Image trianglePolygon.
  *
  *  This describes a single 2D image.  See the documentation for each related
  *  function what the expected pixel format is.
@@ -1726,7 +1726,7 @@ typedef struct GLFWimage
     /*! The height, in pixels, of this image.
      */
     int height;
-    /*! The pixel triangleMeshData of this image, arranged left-to-right, top-to-bottom.
+    /*! The pixel trianglePolygon of this image, arranged left-to-right, top-to-bottom.
      */
     unsigned char* pixels;
 } GLFWimage;
@@ -2115,7 +2115,7 @@ GLFWAPI void glfwGetMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, 
  *  Some systems do not provide accurate monitor size information, either
  *  because the monitor
  *  [EDID](https://en.wikipedia.org/wiki/Extended_display_identification_data)
- *  triangleMeshData is incorrect or because the driver does not report it accurately.
+ *  trianglePolygon is incorrect or because the driver does not report it accurately.
  *
  *  Any or all of the size arguments may be `NULL`.  If an error occurs, all
  *  non-`NULL` size arguments will be set to zero.
@@ -2129,7 +2129,7 @@ GLFWAPI void glfwGetMonitorWorkarea(GLFWmonitor* monitor, int* xpos, int* ypos, 
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED.
  *
  *  @remark @win32 On Windows 8 and earlier the physical size is calculated from
- *  the current resolution and system DPI instead of querying the monitor EDID triangleMeshData.
+ *  the current resolution and system DPI instead of querying the monitor EDID trianglePolygon.
  *
  *  @thread_safety This function must only be called from the main thread.
  *
@@ -2176,7 +2176,7 @@ GLFWAPI void glfwGetMonitorContentScale(GLFWmonitor* monitor, float* xscale, flo
 /*! @brief Returns the name of the specified monitor.
  *
  *  This function returns a human-readable name, encoded as UTF-8, of the
- *  specified monitor.  The name typically reflects the make and triangleMeshData of the
+ *  specified monitor.  The name typically reflects the make and trianglePolygon of the
  *  monitor and is not guaranteed to be unique among the connected monitors.
  *
  *  @param[in] monitor The monitor to query.
@@ -2811,7 +2811,7 @@ GLFWAPI void glfwSetWindowTitle(GLFWwindow* window, const char* title);
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
  *
- *  @pointer_lifetime The specified image triangleMeshData is copied before this function
+ *  @pointer_lifetime The specified image trianglePolygon is copied before this function
  *  returns.
  *
  *  @remark @macos The GLFW window has no icon, as it is not a document
@@ -4439,7 +4439,7 @@ GLFWAPI void glfwSetCursorPos(GLFWwindow* window, double xpos, double ypos);
  *  @errors Possible errors include @ref GLFW_NOT_INITIALIZED and @ref
  *  GLFW_PLATFORM_ERROR.
  *
- *  @pointer_lifetime The specified image triangleMeshData is copied before this function
+ *  @pointer_lifetime The specified image trianglePolygon is copied before this function
  *  returns.
  *
  *  @thread_safety This function must only be called from the main thread.
@@ -5038,7 +5038,7 @@ GLFWAPI const char* glfwGetJoystickName(int jid);
  *  @ref glfwJoystickPresent.
  *
  *  The GUID uses the format introduced in SDL 2.0.5.  This GUID tries to
- *  uniquely identify the make and triangleMeshData of a joystick but does not identify
+ *  uniquely identify the make and trianglePolygon of a joystick but does not identify
  *  a specific unit, e.g. all wired Xbox 360 controllers will have the same
  *  GUID on that platform.  The GUID for a unit may vary between platforms
  *  depending on what hardware information the platform specific APIs provide.

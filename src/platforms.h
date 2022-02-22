@@ -5,14 +5,17 @@
 #ifndef CPP_GAME_ENGINE_PLATFORMS_H
 #define CPP_GAME_ENGINE_PLATFORMS_H
 
-#include "graphics/opengl/OpenGLGraphics.h"
+#include "graphics/opengl/GraphicsGl.h"
 
-#define YES
+#define DoOpenGl
 
-#ifdef YES
-using Graphics = OpenGLGraphics;
+#ifdef DoOpenGl
+using Graphics = GraphicsGl;
+template<class V>
+using Mesh = MeshGl<V>;
 #elif NO
 using Graphics = PlatformGraphics<VulkanTraits>;
 #endif
+
 
 #endif //CPP_GAME_ENGINE_PLATFORMS_H

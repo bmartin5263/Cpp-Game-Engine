@@ -7,9 +7,9 @@
 
 #include <memory>
 #include "globals.h"
-#include "../ShaderProgram.h"
+#include "../PlatformShader.h"
 
-class ShaderProgramGl : public ShaderProgram {
+class ShaderProgramGl : public PlatformShader {
 public:
     void init(const char *vShader, const char *fShader) override;
     void release();

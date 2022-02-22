@@ -3,7 +3,7 @@
 ////
 //
 //#include "Graphics.h"
-//#include "opengl/OpenGLGraphics.h"
+//#include "opengl/GraphicsGl.h"
 //
 //bool Graphics::startup(int width, int height) {
 //    return instance().startup(width, height);

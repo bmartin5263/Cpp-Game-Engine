@@ -6,9 +6,7 @@
 #define CPP_GAME_ENGINE_GRAPHICSSCENE_H
 
 
-#include "graphics/MyVertex.h"
-#include "graphics/MeshDataStatic.h"
-#include "graphics/Mesh.h"
+#include "../platforms.h"
 
 class GraphicsScene {
 public:
@@ -16,15 +14,14 @@ public:
     void update();
 
 private:
-//    MeshDataStatic<MyVertex, 3, 1> triangleMeshData{};
-//    MeshDataStatic<MyVertex, 4, 2> rectangleMeshData{};
-//    MeshDataStatic<MyVertex, 36, 12> cubeMeshData{};
-//
-//    Mesh<MyVertex> triangleMesh{};
-//    Mesh<MyVertex> rectangleMesh{};
-//    FatMesh<MyVertex> cubeMesh{};
-//
-//    ShaderProgram shaderProgram{};
+    Polygon<MyVertex> trianglePolygon{};
+    Polygon<MyVertex> rectanglePolygon{};
+    Polygon<MyVertex> cubePolygon{};
+
+    Mesh<MyVertex> triangleMesh{};
+    Mesh<MyVertex> rectangleMesh{};
+
+//    PlatformShader shaderProgram{};
 //
 //    Texture brickTexture{};
 //    Texture smileyTexture{};

@@ -6,7 +6,7 @@
 //#define CPP_GAME_ENGINE_GRAPHICS_H
 //
 //#include "PlatformGraphics.h"
-//#include "opengl/OpenGLGraphics.h"
+//#include "opengl/GraphicsGl.h"
 //
 //class Graphics {
 //public:
