@@ -5,17 +5,30 @@
 #ifndef CPP_GAME_ENGINE_TEXTURE_H
 #define CPP_GAME_ENGINE_TEXTURE_H
 
+#include <../platform.h>
+
+#ifdef DoOpenGl
+#include "mygl.h"
+#include "glad/glad.h"
+#else
+#error "Unsupported Graphics"
+#endif
+
 class Texture {
 public:
-    virtual void init(const char *filename) = 0;
-    virtual void use() const = 0;
-    virtual ~Texture() = default;
-};
+    void init(const char *filename);
+    void use() const;
+    void use(int num) const;
+    void release();
 
-class NullTexture : Texture {
-    void init(const char *filename) override {}
-    void use() const override {}
-    ~NullTexture() override = default;
+    ~Texture();
+
+private:
+#ifdef DoOpenGl
+    void setSampling();
+    void loadTexture(const char *filename);
+    uint id;
+#endif
 };
 
 #endif //CPP_GAME_ENGINE_TEXTURE_H

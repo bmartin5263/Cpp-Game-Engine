@@ -2,22 +2,21 @@
 // Created by Brandon on 2/20/22.
 //
 
-#include "DefaultFileSystem.h"
+#include "../FileSystem.h"
 #include "../FileSystemUtil.h"
 #include <sstream>
 #include <fstream>
 
-bool DefaultFileSystem::startup(const std::string &assetDirectory) {
-    this->assetDirectory = assetDirectory;
-    return true;
+void FileSystem::startup(const std::string &assetDirectory) {
+    this->_assetDirectory = assetDirectory;
 }
 
-void DefaultFileSystem::shutdown() {
+void FileSystem::shutdown() {
 
 }
 
-void DefaultFileSystem::loadTextFile(const std::string& path, std::string &out) {
-    auto finalPath = assetDirectory + path;
+void FileSystem::loadTextFileImpl(const std::string& path, std::string &out) {
+    auto finalPath = _assetDirectory + path;
     std::ifstream file;
     // ensure ifstream objects can throw exceptions:
     file.exceptions(std::ifstream::failbit | std::ifstream::badbit);
@@ -38,8 +37,8 @@ void DefaultFileSystem::loadTextFile(const std::string& path, std::string &out) 
     }
 }
 
-void DefaultFileSystem::loadImage(const std::string& path, Image &image) {
-    auto finalPath = assetDirectory + path;
+void FileSystem::loadImageImpl(const std::string& path, Image &image) {
+    auto finalPath = _assetDirectory + path;
     auto s = finalPath.c_str();
     image.load(s);
 
@@ -49,10 +48,10 @@ void DefaultFileSystem::loadImage(const std::string& path, Image &image) {
     }
 }
 
-DefaultFileSystem::~DefaultFileSystem() {
+FileSystem::~FileSystem() {
     print("~FileSystem()");
 }
 
-DefaultFileSystem::DefaultFileSystem() {
+FileSystem::FileSystem() {
     print("FileSystem()");
 }

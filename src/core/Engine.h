@@ -5,8 +5,8 @@
 #ifndef CPP_GAME_ENGINE_ENGINE_H
 #define CPP_GAME_ENGINE_ENGINE_H
 
-#include "file/PlatformFileSystem.h"
-#include <../platforms.h>
+#include "file/FileSystem.h"
+#include "graphics/Graphics.h"
 
 class Scene;
 class EngineImpl;
@@ -15,7 +15,7 @@ public:
     static void create();
     static void launch(Scene *scene);
     static void pushScene(Scene *scene);
-    static PlatformFileSystem& fileSystem();
+    static FileSystem& fileSystem();
     static Graphics& graphics();
 
 private:

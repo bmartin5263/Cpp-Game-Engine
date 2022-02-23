@@ -6,14 +6,14 @@
 //#define CPP_GAME_ENGINE_MODEL_H
 //
 //#include "globals.h"
-//#include "PlatformMesh.h"
+//#include "Mesh.h"
 //#include "Texture.h"
-//#include "PlatformShader.h"
+//#include "Shader.h"
 //
 //template<typename V>
 //class Model {
 //public:
-//    void init(PlatformMesh<V>* mesh, Texture* texture, PlatformShader* shaderProgram) {
+//    void init(Mesh<V>* mesh, Texture* texture, Shader* shaderProgram) {
 //        this->mesh = mesh;
 //        this->texture = texture;
 //        this->shaderProgram = shaderProgram;
@@ -26,9 +26,9 @@
 //    }
 //
 //private:
-//    PlatformMesh<V>* mesh;
+//    Mesh<V>* mesh;
 //    Texture* texture;
-//    PlatformShader* shaderProgram;
+//    Shader* shaderProgram;
 //};
 //
 //#endif //CPP_GAME_ENGINE_MODEL_H

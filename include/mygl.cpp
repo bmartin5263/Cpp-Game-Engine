@@ -3,6 +3,7 @@
 //
 
 #include "mygl.h"
+#include <glad/glad.h>
 #include "globals.h"
 
 void assertCompileSuccess(unsigned int shader) {

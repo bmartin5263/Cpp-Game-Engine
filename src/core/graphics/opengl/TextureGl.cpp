@@ -2,37 +2,40 @@
 // Created by Brandon on 2/20/22.
 //
 
-#include "TextureGl.h"
-#include "mygl.h"
+#include <../platform.h>
+
+#ifdef DoOpenGl
+
+#include "globals.h"
+
+#include "../Texture.h"
 #include "../../file/FileSystemUtil.h"
 #include "FileSystem.h"
+#include "glad/glad.h"
+#include "file/FileSystem.h"
 #include <strtools.h>
 
-void TextureGl::init(const char *filename) {
+void Texture::init(const char *filename) {
     glGenTextures(1, &id);
     glBindTexture(GL_TEXTURE_2D, id);
     setSampling();
     loadTexture(filename);
 }
 
-void TextureGl::release() {
+void Texture::release() {
     glDeleteTextures(1, &id);
 }
 
-void TextureGl::use() const {
+void Texture::use() const {
     use(GL_TEXTURE0);
 }
 
-void TextureGl::use(int num) const {
+void Texture::use(int num) const {
     glActiveTexture(num);
     glBindTexture(GL_TEXTURE_2D, id);
 }
 
-TextureGl::~TextureGl() {
-    release();
-}
-
-void TextureGl::setSampling() {
+void Texture::setSampling() {
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
     glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
@@ -41,7 +44,7 @@ void TextureGl::setSampling() {
     //    glTexParameterfv(GL_TEXTURE_2D, GL_TEXTURE_BORDER_COLOR, borderColor);
 }
 
-void TextureGl::loadTexture(const char *filename) {
+void Texture::loadTexture(const char *filename) {
     Image imagee{};
     FileSystem::loadImage(filename, imagee);
     int rgbFormat = GL_RGB;
@@ -58,3 +61,5 @@ void TextureGl::loadTexture(const char *filename) {
         assert(false);
     }
 }
+
+#endif

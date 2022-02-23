@@ -50,8 +50,8 @@ public:
         return numTriangles * 3;
     }
 
-    std::unique_ptr<V[]> pVertices{};
-    std::unique_ptr<Triangle[]> pTriangles{};
+    std::unique_ptr<V[]> pVertices{nullptr};
+    std::unique_ptr<Triangle[]> pTriangles{nullptr};
     uint numVertices = 0;
     uint numTriangles = 0;
 

@@ -6,7 +6,12 @@
 #define CPP_GAME_ENGINE_GRAPHICSSCENE_H
 
 
-#include "../platforms.h"
+#include "MyVertex.h"
+#include "Texture.h"
+#include "Shader.h"
+#include "Polygon.h"
+#include "Mesh.h"
+#include "Graphics.h"
 
 class GraphicsScene {
 public:
@@ -20,12 +25,12 @@ private:
 
     Mesh<MyVertex> triangleMesh{};
     Mesh<MyVertex> rectangleMesh{};
+    Mesh<MyVertex> cubeMesh{};
 
-//    PlatformShader shaderProgram{};
-//
-//    Texture brickTexture{};
-//    Texture smileyTexture{};
+    Shader<MyVertex> shaderProgram{};
 
+    Texture brickTexture{};
+    Texture smileyTexture{};
 };
 
 

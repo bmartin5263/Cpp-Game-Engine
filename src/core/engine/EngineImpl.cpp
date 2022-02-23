@@ -4,9 +4,9 @@
 
 #include "EngineImpl.h"
 #include "tools/StopWatch.h"
-#include "graphics/Graphics.h"
 #include "globals.h"
 #include "FileSystem.h"
+#include <graphics/GraphicsScene.h>
 
 void EngineImpl::launchImpl(Scene *scene) {
     startSubsystems();
@@ -18,8 +18,15 @@ void EngineImpl::launchImpl(Scene *scene) {
     sw.time<std::chrono::milliseconds>();
 
     running = true;
+
+    GraphicsScene gs;
+    gs.init();
     while (isRunning()) {
+        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
+        gs.update();
         openGlGraphics.update();
+
     }
 
     shutdownSubsystems();
@@ -61,7 +68,7 @@ void EngineImpl::shutdownSubsystems() {
     defaultFileSystem.shutdown();
 }
 
-PlatformFileSystem &EngineImpl::fileSystem() {
+FileSystem &EngineImpl::fileSystem() {
     return defaultFileSystem;
 }
 

@@ -8,7 +8,6 @@
 #define GL_SILENCE_DEPRECATION
 
 #include <iostream>
-#include "glad/glad.h"
 
 void assertCompileSuccess(uint shader);
 void assertLinkSuccess(uint program);

@@ -14,7 +14,7 @@ void Engine::pushScene(Scene *scene) { instance().pushSceneImpl(scene); }
 
 void Engine::launch(Scene *scene) { instance().launchImpl(scene); }
 
-PlatformFileSystem &Engine::fileSystem() {
+FileSystem &Engine::fileSystem() {
     return instance().fileSystem();
 }
 

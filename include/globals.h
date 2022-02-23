@@ -23,7 +23,4 @@ auto& print(const T& msg) {
     return std::cout;
 }
 
-template <class T>
-struct shared {};
-
 #endif //CPP_GAME_ENGINE_GLOBALS

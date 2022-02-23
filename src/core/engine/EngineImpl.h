@@ -8,9 +8,8 @@
 #include <deque>
 #include <queue>
 #include "scene/EngineScene.h"
-#include "graphics/opengl/GraphicsGl.h"
-#include "file/default/DefaultFileSystem.h"
-#include "../../platforms.h"
+#include "graphics/Graphics.h"
+#include "file/FileSystem.h"
 
 typedef std::deque<EngineScene> SceneStack;
 typedef std::queue<EngineScene> SceneQueue;
@@ -24,7 +23,7 @@ public:
     void nextFrame();
     void doSceneChanges();
     bool isRunning() const;
-    PlatformFileSystem& fileSystem();
+    FileSystem& fileSystem();
     Graphics& graphics();
 
 private:
@@ -33,7 +32,7 @@ private:
     void shutdownSubsystems();
 
     Graphics openGlGraphics;
-    DefaultFileSystem defaultFileSystem;
+    FileSystem defaultFileSystem;
 
     SceneStack sceneStack;
     SceneQueue changeRequests;
