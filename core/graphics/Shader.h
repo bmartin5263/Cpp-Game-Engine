@@ -12,7 +12,7 @@
 #include <sstream>
 #include <globals.h>
 
-#include <../platform.h>
+#include "platform.h"
 #ifdef DoOpenGl
 #include "mygl.h"
 #include "glad/glad.h"

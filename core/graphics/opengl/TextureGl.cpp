@@ -2,7 +2,7 @@
 // Created by Brandon on 2/20/22.
 //
 
-#include <../platform.h>
+#include "platform.h"
 
 #ifdef DoOpenGl
 
@@ -10,7 +10,6 @@
 
 #include "../Texture.h"
 #include "../../file/FileSystemUtil.h"
-#include "FileSystem.h"
 #include "glad/glad.h"
 #include "file/FileSystem.h"
 #include <strtools.h>

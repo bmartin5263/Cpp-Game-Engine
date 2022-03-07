@@ -5,7 +5,7 @@
 #ifndef CPP_GAME_ENGINE_MESH_H
 #define CPP_GAME_ENGINE_MESH_H
 
-#include <../platform.h>
+#include "platform.h"
 #include "globals.h"
 #include "Polygon.h"
 

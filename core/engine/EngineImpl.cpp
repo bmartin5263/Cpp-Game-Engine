@@ -5,12 +5,11 @@
 #include "EngineImpl.h"
 #include "tools/StopWatch.h"
 #include "globals.h"
-#include "FileSystem.h"
 #include <graphics/GraphicsScene.h>
 
-void EngineImpl::launchImpl(Scene *scene) {
+void EngineImpl::launch(Scene *scene) {
     startSubsystems();
-    pushSceneImpl(scene);
+    pushScene(scene);
 
     StopWatch sw;
     sw.tick();
@@ -18,21 +17,25 @@ void EngineImpl::launchImpl(Scene *scene) {
     sw.time<std::chrono::milliseconds>();
 
     running = true;
+    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     GraphicsScene gs;
     gs.init();
     while (isRunning()) {
-        glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
+        auto currentFrame = _ui.time();
+        _deltaTime = currentFrame - _lastTime;
+        _lastTime = currentFrame;
+
+        _ui.update();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         gs.update();
         openGlGraphics.update();
-
     }
 
     shutdownSubsystems();
 }
 
-void EngineImpl::pushSceneImpl(Scene *scene) {
+void EngineImpl::pushScene(Scene *scene) {
     changeRequests.emplace(scene);
 }
 
@@ -55,12 +58,13 @@ void EngineImpl::doSceneChanges() {
 }
 
 bool EngineImpl::isRunning() const {
-    return running && openGlGraphics.isRunning();
+    return running && openGlGraphics.isRunningImpl();
 }
 
 void EngineImpl::startSubsystems() {
     defaultFileSystem.startup("../assets/");
-    openGlGraphics.startup(800, 600);
+    _ui.startup(800, 600);
+    openGlGraphics.startup();
 }
 
 void EngineImpl::shutdownSubsystems() {
@@ -78,4 +82,16 @@ Graphics &EngineImpl::graphics() {
 
 EngineImpl::EngineImpl() {
     print("EngineImpl()");
+}
+
+UI &EngineImpl::ui() {
+    return _ui;
+}
+
+Keyboard &EngineImpl::keyboard() {
+    return _ui.keyboard();
+}
+
+double EngineImpl::deltaTime() const {
+    return _deltaTime;
 }

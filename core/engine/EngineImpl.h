@@ -10,6 +10,8 @@
 #include "scene/EngineScene.h"
 #include "graphics/Graphics.h"
 #include "file/FileSystem.h"
+#include "io/Keyboard.h"
+#include "ui/UI.h"
 
 typedef std::deque<EngineScene> SceneStack;
 typedef std::queue<EngineScene> SceneQueue;
@@ -18,25 +20,35 @@ class EngineImpl {
 public:
     EngineImpl();
 
-    void launchImpl(Scene *scene);
-    void pushSceneImpl(Scene *scene);
+    void launch(Scene *scene);
+    void pushScene(Scene *scene);
     void nextFrame();
     void doSceneChanges();
     bool isRunning() const;
+
+    double deltaTime() const;
+
     FileSystem& fileSystem();
     Graphics& graphics();
+    UI& ui();
+    Keyboard& keyboard();
 
 private:
 
     void startSubsystems();
     void shutdownSubsystems();
 
+    // Subsystems
     Graphics openGlGraphics;
     FileSystem defaultFileSystem;
+    UI _ui;
 
     SceneStack sceneStack;
     SceneQueue changeRequests;
     bool running = false;
+
+    double _deltaTime = 0.0;
+    double _lastTime = 0.0;
 
 };
 

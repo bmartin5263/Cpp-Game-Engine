@@ -119,27 +119,50 @@ void GraphicsScene::init() {
 }
 
 void GraphicsScene::update() {
+    auto deltaTime = Engine::deltaTime();
+    if (Keyboard::isKeyPressed(Key::W)) {
+        camera.processKeyboard(FORWARD, deltaTime);
+    }
+    if (Keyboard::isKeyPressed(Key::S)) {
+        camera.processKeyboard(BACKWARD, deltaTime);
+    }
+    if (Keyboard::isKeyPressed(Key::A)) {
+        camera.processKeyboard(LEFT, deltaTime);
+    }
+    if (Keyboard::isKeyPressed(Key::D)) {
+        camera.processKeyboard(RIGHT, deltaTime);
+    }
+
     shaderProgram.use();
     brickTexture.use(GL_TEXTURE0);
     smileyTexture.use(GL_TEXTURE1);
 
-    glm::mat4 transform = glm::mat4(1.0f);  // identity matrix
-    transform = glm::translate(transform, glm::vec3(0.5f, -.5f, 0.0f));
-    transform = glm::rotate(transform, (float)glfwGetTime(), glm::vec3(0.0f, 0.0f, 1.0f));
-    shaderProgram.setMatrix4("transform", transform);
 
-    glm::mat4 view          = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-    glm::mat4 projection    = glm::mat4(1.0f);
-    projection = glm::perspective(glm::radians(45.0f), Graphics::width() / Graphics::height(), 0.1f, 100.0f);
-    view       = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
-//    // pass transformation matrices to the shader
-    shaderProgram.setMatrix4("projection", projection); // note: currently we set the projection matrix each frame, but since the projection matrix rarely changes it's often best practice to set it outside the main loop only once.
+//    glm::mat4 view          = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+//    glm::mat4 projection    = glm::mat4(1.0f);
+//    projection = glm::perspective(glm::radians(45.0f), (float)UI::width() / (float)UI::height(), 0.1f, 100.0f);
+//    view       = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+
+    glm::mat4 projection = glm::perspective(glm::radians(camera.zoom), (float)UI::width() / (float)UI::height(), 0.1f, 100.0f);
+    shaderProgram.setMatrix4("projection", projection);
+
+    // camera/view transformation
+    glm::mat4 view = camera.getViewMatrix();
     shaderProgram.setMatrix4("view", view);
 
-    glm::mat4 model = glm::mat4(1.0f);
-    model = glm::translate(model, glm::vec3(0.0f,  0.0f,  0.0f));
-    model = glm::rotate(model, glm::radians((float) glfwGetTime() * 30), glm::vec3(1.0f, 0.3f, 0.5f));
+    glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+    model = glm::rotate(model, glm::radians(0.0f), glm::vec3(1.0f, 0.3f, 0.5f));
+
     shaderProgram.setMatrix4("model", model);
+    shaderProgram.setMatrix4("view", view);
+    shaderProgram.setMatrix4("projection", projection);
+//
+//    glDrawArrays(GL_TRIANGLES, 0, 36);
+//
+//    glm::mat4 model = glm::mat4(1.0f);
+//    model = glm::translate(model, glm::vec3(0.0f,  0.0f,  0.0f));
+//    model = glm::rotate(model, glm::radians((float) glfwGetTime() * 30), glm::vec3(1.0f, 0.3f, 0.5f));
+//    shaderProgram.setMatrix4("model", model);
 
 //    triangleMesh.draw();
     cubeMesh.draw();

@@ -7,10 +7,9 @@
 
 #include "globals.h"
 
-#include <../platform.h>
+#include "platform.h"
 
 #ifdef DoDesktop
-
 #endif
 
 class Image;
@@ -26,8 +25,8 @@ public:
     void loadTextFileImpl(const std::string& path, std::string& out);
     const std::string& assetDirectoryImpl() const;
 
-    static void loadImage(const std::string& path, Image& image) { instance().loadImageImpl(path, image); };
-    static void loadTextFile(const std::string& path, std::string& out) { instance().loadTextFileImpl(path, out); };
+    static void loadImage(const std::string& path, Image& outImage) { instance().loadImageImpl(path, outImage); };
+    static void loadTextFile(const std::string& path, std::string& outText) { instance().loadTextFileImpl(path, outText); };
     static const std::string& assetDirectory() { return instance().assetDirectoryImpl(); };
 
     static FileSystem& instance();

@@ -5,7 +5,7 @@
 #ifndef CPP_GAME_ENGINE_TEXTURE_H
 #define CPP_GAME_ENGINE_TEXTURE_H
 
-#include <../platform.h>
+#include <platform.h>
 
 #ifdef DoOpenGl
 #include "mygl.h"

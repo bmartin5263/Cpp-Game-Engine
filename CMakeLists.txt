@@ -20,55 +20,61 @@ message("${OPENGL_INCLUDE_DIR}")
 #message("${OPENGL_EGL_INCLUDE_DIRS}")
 
 include_directories(${PROJECT_SOURCE_DIR}/include)
-include_directories(${PROJECT_SOURCE_DIR}/src/core)
+include_directories(core)
 link_directories(${PROJECT_SOURCE_DIR}/lib)
 
 add_executable(Cpp_Game_Engine
-        src/main.cpp
-        src/glad.c
-        src/core/Engine.cpp
-        src/core/Engine.h
-        src/core/scene/Scene.cpp
-        src/core/scene/Scene.h
-        src/core/scene/EngineScene.cpp
-        src/core/scene/EngineScene.h
-        src/core/tools/StopWatch.h
-        src/core/tools/StopWatch.cpp
-        src/sample/SampleScene.cpp
-        src/sample/SampleScene.h
-        src/core/engine/EngineImpl.h
-        src/core/engine/EngineImpl.cpp
-        src/core/graphics/Graphics.cpp
-        src/core/graphics/Graphics.h
+        main.cpp
+        include/glad.c
+        core/Engine.cpp
+        core/Engine.h
+        core/scene/Scene.cpp
+        core/scene/Scene.h
+        core/scene/EngineScene.cpp
+        core/scene/EngineScene.h
+        core/tools/StopWatch.h
+        core/tools/StopWatch.cpp
+        sample/SampleScene.cpp
+        sample/SampleScene.h
+        core/engine/EngineImpl.h
+        core/engine/EngineImpl.cpp
+        core/graphics/Graphics.cpp
+        core/graphics/Graphics.h
         include/globals.h
         include/mygl.h
         include/mygl.cpp
         include/strtools.h
-        src/core/FileSystem.cpp
-        src/core/FileSystem.h
-        src/core/graphics/Mesh.h
-        src/core/graphics/MyVertex.h
-        src/core/file/FileSystem.h
-        src/core/file/default/DesktopFileSystem.cpp
-        src/core/resource/Resources.cpp
-        src/core/resource/Resources.h
-        src/core/resource/ResourcesImpl.cpp
-        src/core/resource/ResourcesImpl.h
-        src/core/graphics/Polygon.h
-        src/core/graphics/Texture.h
-        src/core/graphics/opengl/TextureGl.cpp
-        src/core/graphics/Triangle.h
-        src/core/graphics/Model.h
-        src/core/graphics/Shader.h
-        src/core/file/FileSystemUtil.h
+        core/graphics/Mesh.h
+        core/graphics/MyVertex.h
+        core/file/FileSystem.h
+        core/file/default/DesktopFileSystem.cpp
+        core/resource/Resources.cpp
+        core/resource/Resources.h
+        core/resource/ResourcesImpl.cpp
+        core/resource/ResourcesImpl.h
+        core/graphics/Polygon.h
+        core/graphics/Texture.h
+        core/graphics/opengl/TextureGl.cpp
+        core/graphics/Triangle.h
+        core/graphics/Model.h
+        core/graphics/Shader.h
+        core/file/FileSystemUtil.h
         include/strtools.h
-        src/core/math/Vec4.cpp
-        src/core/math/Vec4.h
-        src/core/file/FileSystemUtil.cpp
-        src/core/graphics/GraphicsScene.cpp
-        src/core/graphics/GraphicsScene.h
-        src/core/graphics/opengl/GraphicsGl.cpp
-        src/platform.h src/core/graphics/MyVertex.cpp src/core/graphics/Texture.cpp src/core/file/FileSystem.cpp)
+        core/math/Vec4.cpp
+        core/math/Vec4.h
+        core/file/FileSystemUtil.cpp
+        core/graphics/GraphicsScene.cpp
+        core/graphics/GraphicsScene.h
+        core/graphics/opengl/GraphicsGl.cpp
+        core/platform.h core/graphics/MyVertex.cpp
+        core/graphics/Texture.cpp
+        core/file/FileSystem.cpp
+        core/io/Keyboard.cpp
+        core/io/Keyboard.h
+        core/io/Key.h
+        core/ui/UI.cpp
+        core/ui/UI.h core/ui/desktop/UIGLFW.cpp core/graphics/Camera.h
+        core/io/Mouse.cpp core/io/Mouse.h main2.cpp)
 
 target_link_libraries(Cpp_Game_Engine
         #        EGL
