@@ -9,7 +9,7 @@
 
 #include <memory>
 
-#include "globals.h"
+#include "globals.hpp"
 #include "Triangle.h"
 
 template<class V>

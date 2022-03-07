@@ -6,13 +6,13 @@
 
 #ifdef DoOpenGl
 
-#include "globals.h"
+#include "globals.hpp"
 
 #include "../Texture.h"
 #include "../../file/FileSystemUtil.h"
 #include "glad/glad.h"
 #include "file/FileSystem.h"
-#include <strtools.h>
+#include <strtools.hpp>
 
 void Texture::init(const char *filename) {
     glGenTextures(1, &id);

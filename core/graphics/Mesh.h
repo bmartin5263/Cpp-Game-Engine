@@ -6,11 +6,11 @@
 #define CPP_GAME_ENGINE_MESH_H
 
 #include "platform.h"
-#include "globals.h"
+#include "globals.hpp"
 #include "Polygon.h"
 
 #ifdef DoOpenGl
-#include "mygl.h"
+#include "mygl.hpp"
 #include "glad/glad.h"
 #elif NO
 using Graphics = PlatformGraphics<VulkanTraits>;

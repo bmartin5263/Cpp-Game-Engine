@@ -6,7 +6,7 @@
 
 #ifdef DoOpenGl
 
-#include "globals.h"
+#include "globals.hpp"
 #include "graphics/Graphics.h"
 #include "Engine.h"
 

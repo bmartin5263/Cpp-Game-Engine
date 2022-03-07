@@ -5,7 +5,7 @@
 #ifndef CPP_GAME_ENGINE_FILESYSTEM_H
 #define CPP_GAME_ENGINE_FILESYSTEM_H
 
-#include "globals.h"
+#include "globals.hpp"
 
 #include "platform.h"
 

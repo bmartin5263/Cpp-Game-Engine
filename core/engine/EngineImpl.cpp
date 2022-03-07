@@ -4,12 +4,13 @@
 
 #include "EngineImpl.h"
 #include "tools/StopWatch.h"
-#include "globals.h"
+#include "globals.hpp"
 #include <graphics/GraphicsScene.h>
 
 void EngineImpl::launch(Scene *scene) {
     startSubsystems();
     pushScene(scene);
+    doSceneChanges();
 
     StopWatch sw;
     sw.tick();
@@ -28,7 +29,8 @@ void EngineImpl::launch(Scene *scene) {
 
         _ui.update();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-        gs.update();
+//        gs.update();
+        sceneStack.front().update();
         openGlGraphics.update();
     }
 

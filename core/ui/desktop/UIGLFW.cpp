@@ -6,7 +6,7 @@
 
 #ifdef DoDesktop
 #include "ui/UI.h"
-#include "globals.h"
+#include "globals.hpp"
 
 std::unordered_map<int, Key> UI::GLFW_TO_ENGINE_KEY;
 

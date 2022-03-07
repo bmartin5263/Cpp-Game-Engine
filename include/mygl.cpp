@@ -2,9 +2,9 @@
 // Created by Brandon on 2/14/22.
 //
 
-#include "mygl.h"
+#include "mygl.hpp"
 #include <glad/glad.h>
-#include "globals.h"
+#include "globals.hpp"
 
 void assertCompileSuccess(unsigned int shader) {
     int success;

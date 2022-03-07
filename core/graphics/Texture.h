@@ -8,7 +8,7 @@
 #include <platform.h>
 
 #ifdef DoOpenGl
-#include "mygl.h"
+#include "mygl.hpp"
 #include "glad/glad.h"
 #else
 #error "Unsupported Graphics"

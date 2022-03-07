@@ -5,7 +5,7 @@
 #ifndef CPP_GAME_ENGINE_FILESYSTEMUTIL_H
 #define CPP_GAME_ENGINE_FILESYSTEMUTIL_H
 
-#include "globals.h"
+#include "globals.hpp"
 
 struct ImageDeleter {
     void operator()(byte* data);

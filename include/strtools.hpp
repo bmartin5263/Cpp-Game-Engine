@@ -2,8 +2,8 @@
 // Created by Brandon on 2/21/22.
 //
 
-#ifndef CPP_GAME_ENGINE_STRTOOLS_H
-#define CPP_GAME_ENGINE_STRTOOLS_H
+#ifndef CPP_GAME_ENGINE_STRTOOLS_HPP
+#define CPP_GAME_ENGINE_STRTOOLS_HPP
 
 #include <string>
 
@@ -15,4 +15,4 @@ bool hasEnding(std::string const &fullString, std::string const &ending) {
     }
 }
 
-#endif //CPP_GAME_ENGINE_STRTOOLS_H
+#endif //CPP_GAME_ENGINE_STRTOOLS_HPP

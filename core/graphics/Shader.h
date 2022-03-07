@@ -10,11 +10,11 @@
 #include "Engine.h"
 #include <fstream>
 #include <sstream>
-#include <globals.h>
+#include <globals.hpp>
 
 #include "platform.h"
 #ifdef DoOpenGl
-#include "mygl.h"
+#include "mygl.hpp"
 #include "glad/glad.h"
 #else
 #error "Unsupported Graphics"

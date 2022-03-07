@@ -7,7 +7,7 @@
 #pragma clang diagnostic push
 #pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
 
-#include "mygl.h"
+#include "mygl.hpp"
 
 class MyVertex {
 public:

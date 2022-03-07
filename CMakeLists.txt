@@ -40,10 +40,10 @@ add_executable(Cpp_Game_Engine
         core/engine/EngineImpl.cpp
         core/graphics/Graphics.cpp
         core/graphics/Graphics.h
-        include/globals.h
-        include/mygl.h
+        include/globals.hpp
+        include/mygl.hpp
         include/mygl.cpp
-        include/strtools.h
+        include/strtools.hpp
         core/graphics/Mesh.h
         core/graphics/MyVertex.h
         core/file/FileSystem.h
@@ -59,7 +59,7 @@ add_executable(Cpp_Game_Engine
         core/graphics/Model.h
         core/graphics/Shader.h
         core/file/FileSystemUtil.h
-        include/strtools.h
+        include/strtools.hpp
         core/math/Vec4.cpp
         core/math/Vec4.h
         core/file/FileSystemUtil.cpp
@@ -74,7 +74,7 @@ add_executable(Cpp_Game_Engine
         core/io/Key.h
         core/ui/UI.cpp
         core/ui/UI.h core/ui/desktop/UIGLFW.cpp core/graphics/Camera.h
-        core/io/Mouse.cpp core/io/Mouse.h main2.cpp)
+        core/io/Mouse.cpp core/io/Mouse.h main2.cpp core/graphics/system.hpp)
 
 target_link_libraries(Cpp_Game_Engine
         #        EGL

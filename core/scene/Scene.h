@@ -13,8 +13,7 @@ public:
 
     virtual void initialize() {}
     virtual void destroy() {}
-
-    void update();
+    virtual void update();
 
     virtual ~Scene() = default;
 };
