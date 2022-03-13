@@ -2,7 +2,7 @@
 // Created by Brandon on 3/12/22.
 //
 
-#include "Mesh.h"
+#include "Mesh.hpp"
 
 void Mesh::init(int numVertices, int numTriangles) {
     pVertices = std::make_unique<MyVertex[]>(numVertices);

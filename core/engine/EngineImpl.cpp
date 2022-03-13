@@ -5,7 +5,6 @@
 #include "EngineImpl.h"
 #include "tools/StopWatch.h"
 #include "globals.hpp"
-#include <graphics/GraphicsScene.h>
 
 void EngineImpl::launch(Scene *scene) {
     startSubsystems();
@@ -20,8 +19,6 @@ void EngineImpl::launch(Scene *scene) {
     running = true;
     glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
-    GraphicsScene gs;
-    gs.init();
     while (isRunning()) {
         auto currentFrame = _ui.time();
         _deltaTime = currentFrame - _lastTime;
@@ -29,7 +26,6 @@ void EngineImpl::launch(Scene *scene) {
 
         _ui.update();
         glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
-//        gs.update();
         sceneStack.front().update();
         openGlGraphics.update();
     }

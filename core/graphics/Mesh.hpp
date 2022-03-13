@@ -2,8 +2,8 @@
 // Created by Brandon on 2/19/22.
 //
 
-#ifndef CPP_GAME_ENGINE_MESH_H
-#define CPP_GAME_ENGINE_MESH_H
+#ifndef CPP_GAME_ENGINE_MESH_HPP
+#define CPP_GAME_ENGINE_MESH_HPP
 
 #include "platform.h"
 #include "globals.hpp"
@@ -49,4 +49,4 @@ private:
 };
 
 
-#endif //CPP_GAME_ENGINE_MESH_H
+#endif //CPP_GAME_ENGINE_MESH_HPP

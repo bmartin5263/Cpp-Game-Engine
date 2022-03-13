@@ -44,7 +44,7 @@ add_executable(Cpp_Game_Engine
         include/mygl.hpp
         include/mygl.cpp
         include/strtools.hpp
-        core/graphics/Mesh.h
+        core/graphics/Mesh.hpp
         core/graphics/MyVertex.hpp
         core/file/FileSystem.h
         core/file/default/DesktopFileSystem.cpp
@@ -62,8 +62,6 @@ add_executable(Cpp_Game_Engine
         core/math/Vec4.cpp
         core/math/Vec4.h
         core/file/FileSystemUtil.cpp
-        core/graphics/GraphicsScene.cpp
-        core/graphics/GraphicsScene.h
         core/graphics/opengl/GraphicsGl.cpp
         core/platform.h core/graphics/MyVertex.cpp
         core/graphics/Texture.cpp

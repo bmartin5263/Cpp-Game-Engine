@@ -2,7 +2,7 @@
 // Created by Brandon on 3/12/22.
 //
 
-#include "graphics/Mesh.h"
+#include "graphics/Mesh.hpp"
 
 void Mesh::graphicsInit() {
     glGenVertexArrays(1, &vao);

@@ -5,7 +5,7 @@
 #ifndef CPP_GAME_ENGINE_SYSTEM_HPP
 #define CPP_GAME_ENGINE_SYSTEM_HPP
 
-#include "Mesh.h"
+#include "Mesh.hpp"
 #include "MyVertex.hpp"
 #include "Texture.hpp"
 #include "Model.hpp"
