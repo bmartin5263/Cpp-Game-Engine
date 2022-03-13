@@ -39,25 +39,24 @@ add_executable(Cpp_Game_Engine
         core/engine/EngineImpl.h
         core/engine/EngineImpl.cpp
         core/graphics/Graphics.cpp
-        core/graphics/Graphics.h
+        core/graphics/Graphics.hpp
         include/globals.hpp
         include/mygl.hpp
         include/mygl.cpp
         include/strtools.hpp
         core/graphics/Mesh.h
-        core/graphics/MyVertex.h
+        core/graphics/MyVertex.hpp
         core/file/FileSystem.h
         core/file/default/DesktopFileSystem.cpp
         core/resource/Resources.cpp
         core/resource/Resources.h
         core/resource/ResourcesImpl.cpp
         core/resource/ResourcesImpl.h
-        core/graphics/Polygon.h
-        core/graphics/Texture.h
+        core/graphics/Texture.hpp
         core/graphics/opengl/TextureGl.cpp
-        core/graphics/Triangle.h
-        core/graphics/Model.h
-        core/graphics/Shader.h
+        core/graphics/Triangle.hpp
+        core/graphics/Model.hpp
+        core/graphics/Shader.hpp
         core/file/FileSystemUtil.h
         include/strtools.hpp
         core/math/Vec4.cpp
@@ -73,8 +72,8 @@ add_executable(Cpp_Game_Engine
         core/io/Keyboard.h
         core/io/Key.h
         core/ui/UI.cpp
-        core/ui/UI.h core/ui/desktop/UIGLFW.cpp core/graphics/Camera.h
-        core/io/Mouse.cpp core/io/Mouse.h main2.cpp core/graphics/system.hpp)
+        core/ui/UI.h core/ui/desktop/UIGLFW.cpp core/graphics/Camera.hpp
+        core/io/Mouse.cpp core/io/Mouse.h main2.cpp core/graphics/system.hpp core/graphics/opengl/MeshGl.cpp core/graphics/Mesh.cpp core/graphics/Shader.cpp core/graphics/opengl/ShaderGl.cpp)
 
 target_link_libraries(Cpp_Game_Engine
         #        EGL

@@ -2,8 +2,8 @@
 // Created by Brandon on 3/5/22.
 //
 
-#ifndef CPP_GAME_ENGINE_CAMERA_H
-#define CPP_GAME_ENGINE_CAMERA_H
+#ifndef CPP_GAME_ENGINE_CAMERA_HPP
+#define CPP_GAME_ENGINE_CAMERA_HPP
 
 #include <glad/glad.h>
 #include <glm/glm.hpp>
@@ -134,4 +134,4 @@ private:
         Up    = glm::normalize(glm::cross(Right, Front));
     }
 };
-#endif //CPP_GAME_ENGINE_CAMERA_H
+#endif //CPP_GAME_ENGINE_CAMERA_HPP

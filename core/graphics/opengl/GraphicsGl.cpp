@@ -6,8 +6,7 @@
 
 #ifdef DoOpenGl
 
-#include "globals.hpp"
-#include "graphics/Graphics.h"
+#include "graphics/Graphics.hpp"
 #include "Engine.h"
 
 void Graphics::startup() {

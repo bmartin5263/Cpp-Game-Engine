@@ -13,7 +13,7 @@
 //template<typename V>
 //class Model {
 //public:
-//    void init(Mesh<V>* mesh, Texture* texture, Shader* shaderProgram) {
+//    void graphicsInit(Mesh<V>* mesh, Texture* texture, Shader* shaderProgram) {
 //        this->mesh = mesh;
 //        this->texture = texture;
 //        this->shaderProgram = shaderProgram;

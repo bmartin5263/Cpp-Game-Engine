@@ -29,15 +29,11 @@ private:
     float lastY =  600.0 / 2.0;
     float fov   =  45.0f;
 
-    Polygon<MyVertex> trianglePolygon{};
-    Polygon<MyVertex> rectanglePolygon{};
-    Polygon<MyVertex> cubePolygon{};
+    Mesh triangleMesh{};
+    Mesh rectangleMesh{};
+    Mesh cubeMesh{};
 
-    Mesh<MyVertex> triangleMesh{};
-    Mesh<MyVertex> rectangleMesh{};
-    Mesh<MyVertex> cubeMesh{};
-
-    Shader<MyVertex> shaderProgram{};
+    Shader shaderProgram{};
 
     Texture brickTexture{};
     Texture smileyTexture{};

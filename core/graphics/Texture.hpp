@@ -2,8 +2,8 @@
 // Created by Brandon on 2/20/22.
 //
 
-#ifndef CPP_GAME_ENGINE_TEXTURE_H
-#define CPP_GAME_ENGINE_TEXTURE_H
+#ifndef CPP_GAME_ENGINE_TEXTURE_HPP
+#define CPP_GAME_ENGINE_TEXTURE_HPP
 
 #include <platform.h>
 
@@ -31,4 +31,4 @@ private:
 #endif
 };
 
-#endif //CPP_GAME_ENGINE_TEXTURE_H
+#endif //CPP_GAME_ENGINE_TEXTURE_HPP

@@ -5,31 +5,31 @@
 #include <iostream>
 #include "SampleScene.h"
 
-static void makeTriangle(Polygon<MyVertex>* m) {
+static void makeTriangle(Mesh& m) {
     // POS              // TEXTURE
-    m->vertices()[0] = MyVertex(-.5f, -.5f, 0.0f,   0.0f, 0.0f);  // bottom left
-    m->vertices()[1] = MyVertex(0.5f, -.5f, 0.0f,   1.0f, 0.0f);  // bottom right
-    m->vertices()[2] = MyVertex(0.0f, 0.5f, 0.0f,   0.5f, 1.0f);  // top
+    m.vertices()[0] = MyVertex(-.5f, -.5f, 0.0f,   0.0f, 0.0f);  // bottom left
+    m.vertices()[1] = MyVertex(0.5f, -.5f, 0.0f,   1.0f, 0.0f);  // bottom right
+    m.vertices()[2] = MyVertex(0.0f, 0.5f, 0.0f,   0.5f, 1.0f);  // top
 
-    m->triangles()[0][0] = 2;
-    m->triangles()[0][1] = 0;
-    m->triangles()[0][2] = 1;
+    m.triangles()[0][0] = 2;
+    m.triangles()[0][1] = 0;
+    m.triangles()[0][2] = 1;
 }
-static void makeRectangle(Polygon<MyVertex>* m) {
+static void makeRectangle(Mesh& m) {
     // POS              // TEXTURE
-    m->vertices()[0] = MyVertex(0.5f, 0.5f, 0.0f,   1.0f, 1.0f);  // top right
-    m->vertices()[1] = MyVertex(0.5f, -.5f, 0.0f,   1.0f, 0.0f);  // bottom right
-    m->vertices()[2] = MyVertex(-.5f, -.5f, 0.0f,   0.0f, 0.0f);  // bottom left
-    m->vertices()[3] = MyVertex(-.5f, 0.5f, 0.0f,   0.0f, 1.0f);  // top left
+    m.vertices()[0] = MyVertex(0.5f, 0.5f, 0.0f,   1.0f, 1.0f);  // top right
+    m.vertices()[1] = MyVertex(0.5f, -.5f, 0.0f,   1.0f, 0.0f);  // bottom right
+    m.vertices()[2] = MyVertex(-.5f, -.5f, 0.0f,   0.0f, 0.0f);  // bottom left
+    m.vertices()[3] = MyVertex(-.5f, 0.5f, 0.0f,   0.0f, 1.0f);  // top left
 
-    m->triangles()[0][0] = 0;
-    m->triangles()[0][1] = 1;
-    m->triangles()[0][2] = 3;
-    m->triangles()[1][0] = 1;
-    m->triangles()[1][1] = 2;
-    m->triangles()[1][2] = 3;
+    m.triangles()[0][0] = 0;
+    m.triangles()[0][1] = 1;
+    m.triangles()[0][2] = 3;
+    m.triangles()[1][0] = 1;
+    m.triangles()[1][1] = 2;
+    m.triangles()[1][2] = 3;
 }
-static void makeCube(Polygon<MyVertex> *m) {
+static void makeCube(Mesh& m) {
 //    m->vertices()[0] = MyVertex(-0.5f, -0.5f, -0.5f,  0.0f, 0.0f);
 //    m->vertices()[1] = MyVertex(0.5f, -0.5f, -0.5f,  1.0f, 0.0f);
 //    m->vertices()[2] = MyVertex(0.5f,  0.5f, -0.5f,  1.0f, 1.0f);
@@ -71,28 +71,28 @@ static void makeCube(Polygon<MyVertex> *m) {
 //    m->vertices()[34] = MyVertex(-0.5f,  0.5f,  0.5f,  0.0f, 0.0f);
 //    m->vertices()[35] = MyVertex(-0.5f,  0.5f, -0.5f,  0.0f, 1.0f);
 
-    m->vertices()[0] = MyVertex(-.5f, -.5f, 0.5f,  0.0f, 0.0f);
-    m->vertices()[1] = MyVertex(0.5f, -.5f, 0.5f,  1.0f, 0.0f);
-    m->vertices()[2] = MyVertex(0.5f, 0.5f, 0.5f,  1.0f, 1.0f);
-    m->vertices()[3] = MyVertex(-.5f, 0.5f, 0.5f,  0.0f, 1.0f);
+    m.vertices()[0] = MyVertex(-.5f, -.5f, 0.5f,  0.0f, 0.0f);
+    m.vertices()[1] = MyVertex(0.5f, -.5f, 0.5f,  1.0f, 0.0f);
+    m.vertices()[2] = MyVertex(0.5f, 0.5f, 0.5f,  1.0f, 1.0f);
+    m.vertices()[3] = MyVertex(-.5f, 0.5f, 0.5f,  0.0f, 1.0f);
 
-    m->vertices()[4] = MyVertex(-.5f, -.5f, -.5f,  0.0f, 0.0f);
-    m->vertices()[5] = MyVertex(0.5f, -.5f, -.5f,  1.0f, 0.0f);
-    m->vertices()[6] = MyVertex(0.5f, 0.5f, -.5f,  1.0f, 1.0f);
-    m->vertices()[7] = MyVertex(-.5f, 0.5f, -.5f,  0.0f, 1.0f);
+    m.vertices()[4] = MyVertex(-.5f, -.5f, -.5f,  0.0f, 0.0f);
+    m.vertices()[5] = MyVertex(0.5f, -.5f, -.5f,  1.0f, 0.0f);
+    m.vertices()[6] = MyVertex(0.5f, 0.5f, -.5f,  1.0f, 1.0f);
+    m.vertices()[7] = MyVertex(-.5f, 0.5f, -.5f,  0.0f, 1.0f);
 
-    m->triangles()[0] = Triangle(0, 1, 2);
-    m->triangles()[1] = Triangle(2, 3, 0);
-    m->triangles()[2] = Triangle(1, 5, 6);
-    m->triangles()[3] = Triangle(6, 2, 1);
-    m->triangles()[4] = Triangle(7, 6, 5);
-    m->triangles()[5] = Triangle(5, 4, 7);
-    m->triangles()[6] = Triangle(4, 0, 3);
-    m->triangles()[7] = Triangle(3, 7, 4);
-    m->triangles()[8] = Triangle(4, 5, 1);
-    m->triangles()[9] = Triangle(1, 0, 4);
-    m->triangles()[10] = Triangle(3, 2, 6);
-    m->triangles()[11] = Triangle(6, 7, 3);
+    m.triangles()[0] = Triangle(0, 1, 2);
+    m.triangles()[1] = Triangle(2, 3, 0);
+    m.triangles()[2] = Triangle(1, 5, 6);
+    m.triangles()[3] = Triangle(6, 2, 1);
+    m.triangles()[4] = Triangle(7, 6, 5);
+    m.triangles()[5] = Triangle(5, 4, 7);
+    m.triangles()[6] = Triangle(4, 0, 3);
+    m.triangles()[7] = Triangle(3, 7, 4);
+    m.triangles()[8] = Triangle(4, 5, 1);
+    m.triangles()[9] = Triangle(1, 0, 4);
+    m.triangles()[10] = Triangle(3, 2, 6);
+    m.triangles()[11] = Triangle(6, 7, 3);
 }
 
 SampleScene::SampleScene() {
@@ -100,16 +100,17 @@ SampleScene::SampleScene() {
 }
 
 void SampleScene::initialize() {
-    trianglePolygon.init(3, 1);
-    rectanglePolygon.init(4, 2);
-    cubePolygon.init(36, 12);
-    makeTriangle(&trianglePolygon);
-    makeRectangle(&rectanglePolygon);
-    makeCube(&cubePolygon);
+    triangleMesh.init(3, 1);
+    rectangleMesh.init(4, 2);
+    cubeMesh.init(36, 12);
 
-    triangleMesh.init(trianglePolygon);
-    rectangleMesh.init(rectanglePolygon);
-    cubeMesh.init(cubePolygon);
+    makeTriangle(triangleMesh);
+    makeRectangle(rectangleMesh);
+    makeCube(cubeMesh);
+
+    triangleMesh.graphicsInit();
+    rectangleMesh.graphicsInit();
+    cubeMesh.graphicsInit();
 
     brickTexture.init("images/wall.jpg");
     smileyTexture.init("images/awesomeface.png");

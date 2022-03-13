@@ -6,7 +6,7 @@
 #define CPP_GAME_ENGINE_ENGINE_H
 
 #include "file/FileSystem.h"
-#include "graphics/Graphics.h"
+#include "graphics/Graphics.hpp"
 #include "io/Keyboard.h"
 #include "ui/UI.h"
 

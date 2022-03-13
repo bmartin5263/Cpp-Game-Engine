@@ -2,12 +2,11 @@
 // Created by Brandon on 2/20/22.
 //
 
-#ifndef CPP_GAME_ENGINE_MYVERTEX_H
-#define CPP_GAME_ENGINE_MYVERTEX_H
-#pragma clang diagnostic push
-#pragma ide diagnostic ignored "OCUnusedGlobalDeclarationInspection"
+#ifndef CPP_GAME_ENGINE_MYVERTEX_HPP
+#define CPP_GAME_ENGINE_MYVERTEX_HPP
 
 #include "mygl.hpp"
+#include <glm/glm.hpp>
 
 class MyVertex {
 public:
@@ -15,6 +14,9 @@ public:
     MyVertex(float x, float y, float z) : x(x), y(y), z(z), u(.0f), v(.0f) {}
     MyVertex(float x, float y, float z, float u, float v) : x(x), y(y), z(z), u(u), v(v) {}
 
+//    glm::vec3 Position;
+//    glm::vec3 Normal;
+//    glm::vec2 TexCoords;
     float x = .0f;
     float y = .0f;
     float z = .0f;
@@ -24,6 +26,4 @@ public:
     static void enable();
 };
 
-#pragma clang diagnostic pop
-
-#endif //CPP_GAME_ENGINE_MYVERTEX_H
+#endif //CPP_GAME_ENGINE_MYVERTEX_HPP

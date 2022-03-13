@@ -2,8 +2,8 @@
 // Created by Brandon on 1/31/22.
 //
 
-#ifndef CPP_GAME_ENGINE_GRAPHICS_H
-#define CPP_GAME_ENGINE_GRAPHICS_H
+#ifndef CPP_GAME_ENGINE_GRAPHICS_HPP
+#define CPP_GAME_ENGINE_GRAPHICS_HPP
 
 /**
  * Simulate conditional compilation
@@ -25,4 +25,4 @@ public:
 
 };
 
-#endif //CPP_GAME_ENGINE_GRAPHICS_H
+#endif //CPP_GAME_ENGINE_GRAPHICS_HPP

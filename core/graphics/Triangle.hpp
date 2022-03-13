@@ -2,8 +2,8 @@
 // Created by Brandon on 2/20/22.
 //
 
-#ifndef CPP_GAME_ENGINE_TRIANGLE_H
-#define CPP_GAME_ENGINE_TRIANGLE_H
+#ifndef CPP_GAME_ENGINE_TRIANGLE_HPP
+#define CPP_GAME_ENGINE_TRIANGLE_HPP
 
 struct Triangle {
     Triangle() = default;
@@ -19,4 +19,4 @@ struct Triangle {
     int i2;
 };
 
-#endif //CPP_GAME_ENGINE_TRIANGLE_H
+#endif //CPP_GAME_ENGINE_TRIANGLE_HPP

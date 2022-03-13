@@ -7,63 +7,38 @@
 
 #include "platform.h"
 #include "globals.hpp"
-#include "Polygon.h"
+#include "Triangle.hpp"
 
 #ifdef DoOpenGl
 #include "mygl.hpp"
 #include "glad/glad.h"
-#elif NO
-using Graphics = PlatformGraphics<VulkanTraits>;
 #endif
 
-template<class V>
+#include "MyVertex.hpp"
+
 class Mesh {
 public:
-#ifdef DoOpenGl
-    void init(Polygon<V>& polygon) {
-        _polygon = &polygon;
 
-        glGenVertexArrays(1, &vao);
-        glGenBuffers(1, &vbo);
-        glGenBuffers(1, &ebo);
+    void init(int numVertices, int numTriangles);
+    void init(MyVertex* vertices, int numVertices, Triangle* triangles, int numTriangles);
+    Triangle* triangles();
+    MyVertex* vertices();
+    long trianglesSize();
+    long verticesSize();
+    int indices();
 
-        glBindVertexArray(vao);
+    ~Mesh();
 
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, ebo);
-        glBufferData(GL_ELEMENT_ARRAY_BUFFER, polygon.trianglesSize(), polygon.triangles(), GL_STATIC_DRAW);
-
-        glBindBuffer(GL_ARRAY_BUFFER, vbo);
-        glBufferData(GL_ARRAY_BUFFER, polygon.verticesSize(), polygon.vertices(), GL_STATIC_DRAW);
-
-        V::enable();
-
-        glBindVertexArray(0);
-        glBindBuffer(GL_ARRAY_BUFFER, 0);
-        glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
-    };
-
-    void draw() {
-        glBindVertexArray(vao);
-        glDrawElements(GL_TRIANGLES, _polygon->indices(), GL_UNSIGNED_INT, nullptr);
-    };
-
-    void release() {
-        glDeleteVertexArrays(1, &vao);
-        glDeleteBuffers(1, &vbo);
-        glDeleteBuffers(1, &ebo);
-    }
-#endif
-
-    Polygon<V>& polygon() {
-        return _polygon;
-    };
-
-    ~Mesh() {
-        release();
-    }
+    ABSTRACT void draw();
+    ABSTRACT void release();
+    ABSTRACT void graphicsInit();
 
 private:
-    Polygon<V>* _polygon;
+
+    std::unique_ptr<MyVertex[]> pVertices{nullptr};
+    std::unique_ptr<Triangle[]> pTriangles{nullptr};
+    uint numVertices = 0;
+    uint numTriangles = 0;
 
 #ifdef DoOpenGl
     uint vbo = 0;

@@ -2,7 +2,7 @@
 // Created by Brandon on 2/22/22.
 //
 
-#include "MyVertex.h"
+#include "MyVertex.hpp"
 #include <glad/glad.h>
 
 void MyVertex::enable() {

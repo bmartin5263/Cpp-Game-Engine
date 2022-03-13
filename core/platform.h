@@ -8,4 +8,6 @@
 #define DoOpenGl
 #define DoDesktop
 
+#define ABSTRACT
+
 #endif //CPP_GAME_ENGINE_PLATFORM_H

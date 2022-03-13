@@ -27,7 +27,7 @@ void scroll_callback(GLFWwindow* window, double x, double y)
 
 void key_callback(GLFWwindow* window, int key, int scancode, int action, int mods)
 {
-    Keyboard::dispatchMap[action](UI::GLFW_TO_ENGINE_KEY[key]);
+    Keyboard::DISPATCH_MAP[action](UI::GLFW_TO_ENGINE_KEY[key]);
 }
 
 UI::UI() {

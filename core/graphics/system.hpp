@@ -6,11 +6,10 @@
 #define CPP_GAME_ENGINE_SYSTEM_HPP
 
 #include "Mesh.h"
-#include "MyVertex.h"
-#include "Polygon.h"
-#include "Texture.h"
-#include "Model.h"
-#include "Camera.h"
-#include "Shader.h"
+#include "MyVertex.hpp"
+#include "Texture.hpp"
+#include "Model.hpp"
+#include "Camera.hpp"
+#include "Shader.hpp"
 
 #endif //CPP_GAME_ENGINE_SYSTEM_HPP

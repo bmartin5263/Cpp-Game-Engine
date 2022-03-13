@@ -25,7 +25,7 @@ public:
     static bool isKeyPressed(Key key) { return instance().isKeyPressedImpl(key); };
     static void pressKey(Key key) { instance().pressKeyImpl(key); };
     static void releaseKey(Key key) { instance().releaseKeyImpl(key); };
-    constexpr static FunctionPointer dispatchMap[3] { releaseKey, pressKey, pressKey };
+    constexpr static FunctionPointer DISPATCH_MAP[3] { releaseKey, pressKey, pressKey };
 
     static Keyboard& instance();
 

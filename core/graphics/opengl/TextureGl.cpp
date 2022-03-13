@@ -8,7 +8,7 @@
 
 #include "globals.hpp"
 
-#include "../Texture.h"
+#include "../Texture.hpp"
 #include "../../file/FileSystemUtil.h"
 #include "glad/glad.h"
 #include "file/FileSystem.h"

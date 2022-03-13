@@ -8,7 +8,7 @@
 #include <deque>
 #include <queue>
 #include "scene/EngineScene.h"
-#include "graphics/Graphics.h"
+#include "graphics/Graphics.hpp"
 #include "file/FileSystem.h"
 #include "io/Keyboard.h"
 #include "ui/UI.h"

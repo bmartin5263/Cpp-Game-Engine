@@ -7,9 +7,9 @@
 #include <glm/gtc/type_ptr.hpp>
 
 #include <iostream>
-#include "graphics/Camera.h"
-#include "graphics/Shader.h"
-#include "graphics/MyVertex.h"
+#include "graphics/Camera.hpp"
+#include "graphics/Shader.hpp"
+#include "graphics/MyVertex.hpp"
 
 void framebuffer_size_callback3(GLFWwindow* window, int width, int height);
 void mouse_callback2(GLFWwindow* window, double xpos, double ypos);
@@ -76,7 +76,7 @@ int main2()
 
     // build and compile our shader zprogram
     // ------------------------------------
-    Shader<MyVertex> ourShader;
+    Shader ourShader;
     ourShader.init("../assets/shaders/vshader.glsl", "../assets/shaders/fshader.glsl");
 
     // set up vertex data (and buffer(s)) and configure vertex attributes
