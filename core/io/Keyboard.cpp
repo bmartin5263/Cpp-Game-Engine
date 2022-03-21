@@ -4,6 +4,7 @@
 
 #include "Keyboard.h"
 #include "Engine.h"
+#include "ui/UI.h"
 
 Keyboard &Keyboard::instance() {
     return Engine::ui().keyboard();

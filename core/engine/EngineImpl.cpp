@@ -17,15 +17,14 @@ void EngineImpl::launch(Scene *scene) {
     sw.time<std::chrono::milliseconds>();
 
     running = true;
-    glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
 
     while (isRunning()) {
         auto currentFrame = _ui.time();
         _deltaTime = currentFrame - _lastTime;
         _lastTime = currentFrame;
 
+        openGlGraphics.clear();
         _ui.update();
-        glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT);
         sceneStack.front().update();
         openGlGraphics.update();
     }
@@ -56,12 +55,12 @@ void EngineImpl::doSceneChanges() {
 }
 
 bool EngineImpl::isRunning() const {
-    return running && openGlGraphics.isRunningImpl();
+    return running && openGlGraphics.isRunning();
 }
 
 void EngineImpl::startSubsystems() {
     defaultFileSystem.startup("../assets/");
-    _ui.startup(800, 600);
+    _ui.startup(375, 667);
     openGlGraphics.startup();
 }
 
@@ -92,4 +91,8 @@ Keyboard &EngineImpl::keyboard() {
 
 double EngineImpl::deltaTime() const {
     return _deltaTime;
+}
+
+ResourcesImpl &EngineImpl::resources() {
+    return _resources;
 }

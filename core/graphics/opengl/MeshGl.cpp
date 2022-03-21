@@ -24,7 +24,7 @@ void Mesh::graphicsInit() {
     glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, 0);
 }
 
-void Mesh::draw() {
+void Mesh::draw(Shader &shader) {
     glBindVertexArray(vao);
     glDrawElements(GL_TRIANGLES, indices(), GL_UNSIGNED_INT, nullptr);
 }

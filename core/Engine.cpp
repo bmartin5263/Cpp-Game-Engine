@@ -33,3 +33,7 @@ UI &Engine::ui() {
 double Engine::deltaTime() {
     return instance().deltaTime();
 }
+
+ResourcesImpl &Engine::resources() {
+    return instance().resources();
+}

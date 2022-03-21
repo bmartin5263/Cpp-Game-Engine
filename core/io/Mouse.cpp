@@ -4,6 +4,7 @@
 
 #include "Mouse.h"
 #include "Engine.h"
+#include "ui/UI.h"
 
 Mouse &Mouse::instance() {
     return Engine::ui().mouse();

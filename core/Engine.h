@@ -5,11 +5,11 @@
 #ifndef CPP_GAME_ENGINE_ENGINE_H
 #define CPP_GAME_ENGINE_ENGINE_H
 
-#include "file/FileSystem.h"
-#include "graphics/Graphics.hpp"
-#include "io/Keyboard.h"
-#include "ui/UI.h"
-
+class FileSystem;
+class Graphics;
+class Keyboard;
+class UI;
+class ResourcesImpl;
 class Scene;
 class EngineImpl;
 class Engine {
@@ -23,6 +23,7 @@ public:
     static Graphics& graphics();
     static Keyboard& keyboard();
     static UI& ui();
+    static ResourcesImpl& resources();
 
 private:
     static EngineImpl& instance();

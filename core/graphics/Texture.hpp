@@ -16,19 +16,22 @@
 
 class Texture {
 public:
-    void init(const char *filename);
-    void use() const;
-    void use(int num) const;
-    void release();
-
+    PLATFORM void use() const;
+    PLATFORM void use(int num) const;
+    PLATFORM void release();
+    PLATFORM uint width();
+    PLATFORM uint height();
     ~Texture();
 
 private:
+    friend class GraphicsLoader;
 #ifdef DoOpenGl
-    void setSampling();
-    void loadTexture(const char *filename);
-    uint id;
+    uint id = 0;
 #endif
+
+    uint _width = 0;
+    uint _height = 0;
+
 };
 
 #endif //CPP_GAME_ENGINE_TEXTURE_HPP

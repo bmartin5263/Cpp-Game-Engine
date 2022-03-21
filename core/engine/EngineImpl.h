@@ -12,6 +12,7 @@
 #include "file/FileSystem.h"
 #include "io/Keyboard.h"
 #include "ui/UI.h"
+#include "resource/ResourcesImpl.hpp"
 
 typedef std::deque<EngineScene> SceneStack;
 typedef std::queue<EngineScene> SceneQueue;
@@ -32,6 +33,7 @@ public:
     Graphics& graphics();
     UI& ui();
     Keyboard& keyboard();
+    ResourcesImpl& resources();
 
 private:
 
@@ -42,6 +44,7 @@ private:
     Graphics openGlGraphics;
     FileSystem defaultFileSystem;
     UI _ui;
+    ResourcesImpl _resources;
 
     SceneStack sceneStack;
     SceneQueue changeRequests;

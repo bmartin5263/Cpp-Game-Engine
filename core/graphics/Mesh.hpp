@@ -16,10 +16,10 @@
 
 #include "MyVertex.hpp"
 
+class Shader;
 class Mesh {
 public:
 
-    void init(int numVertices, int numTriangles);
     void init(MyVertex* vertices, int numVertices, Triangle* triangles, int numTriangles);
     Triangle* triangles();
     MyVertex* vertices();
@@ -29,11 +29,12 @@ public:
 
     ~Mesh();
 
-    ABSTRACT void draw();
-    ABSTRACT void release();
-    ABSTRACT void graphicsInit();
+    PLATFORM void draw(Shader &shader);
+    PLATFORM void release();
 
 private:
+
+    PLATFORM void graphicsInit();
 
     std::unique_ptr<MyVertex[]> pVertices{nullptr};
     std::unique_ptr<Triangle[]> pTriangles{nullptr};

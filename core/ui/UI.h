@@ -28,8 +28,6 @@ public:
     void update();
     float time() const;
 
-    int widthImpl() const;
-    int heightImpl() const;
     Keyboard& keyboard() { return _keyboard; };
     Mouse& mouse() { return _mouse; };
 
@@ -45,6 +43,9 @@ public:
 private:
     friend class Keyboard;
     friend class Graphics;
+
+    int widthImpl() const;
+    int heightImpl() const;
 
     Keyboard _keyboard;
     Mouse _mouse;

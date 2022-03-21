@@ -10,18 +10,24 @@
  */
 
 #include "platform.h"
+#include "math/Vec4f.h"
+#include "GraphicsArgs.hpp"
 
 class Graphics {
 public:
     void startup();
     void shutdown();
     void update();
-
-    bool isRunningImpl() const;
-
-    static bool isRunning() { return instance().isRunningImpl(); };
+    void clear();
+    bool isRunning() const;
 
     static Graphics& instance();
+    static GraphicsArgs& initArgs() {
+        static GraphicsArgs gp;
+        return gp;
+    };
+
+private:
 
 };
 

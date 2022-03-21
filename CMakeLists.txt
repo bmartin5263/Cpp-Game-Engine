@@ -51,17 +51,17 @@ add_executable(Cpp_Game_Engine
         core/resource/Resources.cpp
         core/resource/Resources.h
         core/resource/ResourcesImpl.cpp
-        core/resource/ResourcesImpl.h
+        core/resource/ResourcesImpl.hpp
         core/graphics/Texture.hpp
         core/graphics/opengl/TextureGl.cpp
         core/graphics/Triangle.hpp
         core/graphics/Model.hpp
         core/graphics/Shader.hpp
-        core/file/FileSystemUtil.h
+        core/file/utils.hpp
         include/strtools.hpp
-        core/math/Vec4.cpp
-        core/math/Vec4.h
-        core/file/FileSystemUtil.cpp
+        core/math/Vec4f.cpp
+        core/math/Vec4f.h
+        core/file/utils.cpp
         core/graphics/opengl/GraphicsGl.cpp
         core/platform.h core/graphics/MyVertex.cpp
         core/graphics/Texture.cpp
@@ -71,7 +71,7 @@ add_executable(Cpp_Game_Engine
         core/io/Key.h
         core/ui/UI.cpp
         core/ui/UI.h core/ui/desktop/UIGLFW.cpp core/graphics/Camera.hpp
-        core/io/Mouse.cpp core/io/Mouse.h main2.cpp core/graphics/system.hpp core/graphics/opengl/MeshGl.cpp core/graphics/Mesh.cpp core/graphics/Shader.cpp core/graphics/opengl/ShaderGl.cpp)
+        core/io/Mouse.cpp core/io/Mouse.h main2.cpp core/graphics/system.hpp core/graphics/opengl/MeshGl.cpp core/graphics/Mesh.cpp core/graphics/Shader.cpp core/graphics/opengl/ShaderGl.cpp sample/Scene2d.cpp sample/Scene2d.hpp core/sprite/SpriteRenderer.cpp core/sprite/SpriteRenderer.hpp core/resource/GraphicsLoader.hpp core/resource/loader/GlGraphicsLoader.cpp core/resource/utils.hpp include/ResourceId.hpp core/graphics/GraphicsArgs.hpp)
 
 target_link_libraries(Cpp_Game_Engine
         #        EGL

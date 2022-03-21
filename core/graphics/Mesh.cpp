@@ -4,18 +4,12 @@
 
 #include "Mesh.hpp"
 
-void Mesh::init(int numVertices, int numTriangles) {
-    pVertices = std::make_unique<MyVertex[]>(numVertices);
-    pTriangles = std::make_unique<Triangle[]>(numTriangles);
-    this->numVertices = numVertices;
-    this->numTriangles = numTriangles;
-}
-
 void Mesh::init(MyVertex *vertices, int numVertices, Triangle *triangles, int numTriangles) {
     pVertices.reset(vertices);
     pTriangles.reset(triangles);
     this->numVertices = numVertices;
     this->numTriangles = numTriangles;
+    graphicsInit();
 }
 
 Triangle *Mesh::triangles() {

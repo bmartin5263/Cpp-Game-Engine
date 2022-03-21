@@ -20,20 +20,21 @@
 
 class Shader {
 public:
-    void init(const char *vShader, const char *fShader);
     void use() const;
     void setBool(const std::string &name, bool value);
     void setInt(const std::string &name, int value);
     void setFloat(const std::string &name, float value);
     void setMatrix4(const std::string &name, const glm::mat4& value);
-    ABSTRACT void release();
+    void setVector3f(const std::string &name, glm::vec3 value);
+
+    PLATFORM void release();
 
     ~Shader();
 
 private:
+    friend class GraphicsLoader;
 #ifdef DoOpenGl
     uint id = 0;
-    static uint compile(uint vShader, uint fShader);
 #endif
 
 };
