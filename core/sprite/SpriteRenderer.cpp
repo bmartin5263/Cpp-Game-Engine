@@ -60,6 +60,17 @@ void SpriteRenderer::render2(Texture &texture)
     glBindVertexArray(0);
 }
 
+void SpriteRenderer::render3(Texture &texture, const Rect &src, const Rect &dst) {
+    auto position = glm::vec2(dst.x, dst.y);
+    auto size = glm::vec2(dst.width, dst.height);
+    auto color = glm::vec3(1.0f);
+
+    auto texPosition = glm::vec2(src.x, src.y);
+    auto texSize = glm::vec2(src.width, src.height);
+
+
+}
+
 void SpriteRenderer::initRenderData()
 {
     // configure VAO/VBO

@@ -8,6 +8,7 @@
 
 #include "graphics/Shader.hpp"
 #include "graphics/Texture.hpp"
+#include "math/Rect.hpp"
 
 class SpriteRenderer {
 public:
@@ -20,6 +21,7 @@ public:
                     float rotate = 0.0f,
                     glm::vec3 color = glm::vec3(1.0f));
     void render2(Texture &texture);
+    void render3(Texture &texture, const Rect& src, const Rect& dst);
 private:
     uint quadVAO;
     uint bgVAO;
